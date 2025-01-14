@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 from selenium import webdriver
 
 # Natural Language Processing Libraries
@@ -18,4 +18,3 @@ import logging
 import os
 import numpy as np
 print("All libraries imported successfully!")
-
