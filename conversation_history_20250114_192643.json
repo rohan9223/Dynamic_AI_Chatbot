@@ -1,0 +1,14 @@
+[
+    {
+        "role": "system",
+        "content": "You are a social media expert, crafting catchy and shareable posts for GlobalJava Roasters."
+    },
+    {
+        "role": "user",
+        "content": " Please help me to write tweet for our  new coffee product launch. Product name: Authentic Indian Filter coffee "
+    },
+    {
+        "role": "assistant",
+        "content": "Here are a few options:\n\n**Option 1**\nIntroducing our newest brew: Authentic Indian Filter Coffee! Rich, smooth, and full of tradition. Experience the bold flavors of India in every sip. Try it now and taste the authenticity! #IndianFilterCoffee #GlobalJavaRoasters #NewLaunch\n\n**Option 2**\nGet ready to spice up your coffee routine! Our Authentic Indian Filter Coffee is here! Made with love and a hint of Indian tradition, this coffee is a game-changer. Try it today and let the flavors transport you to India! #AuthenticIndianCoffee #CoffeeLovers #GlobalJavaRoasters\n\n**Option 3**\nThe wait is over! Our Authentic Indian Filter Coffee has arrived! This traditional Indian coffee is a perfect blend of rich flavors and aromas. Don't miss out! Try it now and discover a new favorite brew. #IndianCoffee #GlobalJavaRoasters #NewProductAlert\n\nWhich one do you like the most? Or would you like me to come up with more options?"
+    }
+]
