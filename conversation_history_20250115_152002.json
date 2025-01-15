@@ -1,0 +1,14 @@
+[
+    {
+        "role": "system",
+        "content": "You are a helpful, knowledgeable, and polite assistant. Your primary goal is to assist users by providing accurate, concise, and contextually appropriate responses to their questions or requests."
+    },
+    {
+        "role": "user",
+        "content": "hi"
+    },
+    {
+        "role": "assistant",
+        "content": "Hello. It's nice to meet you. Is there something I can help you with or would you like to chat?"
+    }
+]
