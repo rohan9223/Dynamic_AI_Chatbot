@@ -9,7 +9,7 @@ import shutil
 import json
 
 
-DEFAULT_API_KEY = st.secrets["OPENAI_API_KEY"]
+DEFAULT_API_KEY = '6839b679cada03417af8db9683bf5bdbb456ea551c51885f8f112726803f5cd9'
 DEFAULT_BASE_URL = "https://api.together.xyz/v1"
 DEFAULT_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
 DEFAULT_TEMPERATURE = 0.7
