@@ -4,8 +4,12 @@ import json
 from datetime import datetime
 import os
 import streamlit as st
+import tempfile
+import shutil
+import json
 
-DEFAULT_API_KEY = "6839b679cada03417af8db9683bf5bdbb456ea551c51885f8f112726803f5cd9"
+
+DEFAULT_API_KEY = st.secrets["OPENAI_API_KEY"]
 DEFAULT_BASE_URL = "https://api.together.xyz/v1"
 DEFAULT_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
 DEFAULT_TEMPERATURE = 0.7
@@ -23,11 +27,10 @@ class ConversationManager:
             api_key=api_key,
             base_url=base_url
         )
-        if history_file is None:
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            self.history_file = f"conversation_history_{timestamp}.json"
-        else:
-            self.history_file = history_file
+        if 'history_file' not in st.session_state:
+            st.session_state.history_file = "conversation_history.json"  # Use a fixed name for the session
+            self.history_file = st.session_state.history_file
+
 
         self.model = model if model else DEFAULT_MODEL
         self.temperature = temperature if temperature else DEFAULT_TEMPERATURE
@@ -112,23 +115,29 @@ class ConversationManager:
         return ai_response
     
     def load_conversation_history(self):
-        try:
-            with open(self.history_file, "r") as file:
-                self.conversation_history = json.load(file)
-        except FileNotFoundError:
-            self.conversation_history = [{"role": "system", "content": self.system_message}]
-        except json.JSONDecodeError:
-            print("Error reading the conversation history file. Starting with an empty history.")
-            self.conversation_history = [{"role": "system", "content": self.system_message}]
+        if 'conversation_history' not in st.session_state:
+            st.session_state.conversation_history = [{"role": "system", "content": self.system_message}]
+            self.conversation_history = st.session_state.conversation_history
+        else:
+            try:
+            # Your file reading logic can be here if required in the future.
+            # For now, assuming history is just managed by session state
+                self.conversation_history = st.session_state.conversation_history
+            except FileNotFoundError:
+                self.conversation_history = [{"role": "system", "content": self.system_message}]
+            except json.JSONDecodeError:
+                print("Error reading the conversation history file. Starting with an empty history.")
+                self.conversation_history = [{"role": "system", "content": self.system_message}]
+
 
     def save_conversation_history(self):
-        try:
-            with open(self.history_file, "w") as file:
-                json.dump(self.conversation_history, file, indent=4)
-        except IOError as e:
-            print(f"An I/O error occurred while saving the conversation history: {e}")
-        except Exception as e:
-            print(f"An unexpected error occurred while saving the conversation history: {e}")
+            try:
+                st.session_state.conversation_history = self.conversation_history  # Store it in session state
+            except IOError as e:
+                print(f"An I/O error occurred while saving the conversation history: {e}")
+            except Exception as e:
+                print(f"An unexpected error occurred while saving the conversation history: {e}")
+
 
     def reset_conversation_history(self):
         self.conversation_history = [{"role": "system", "content": self.system_message}]
@@ -136,6 +145,10 @@ class ConversationManager:
             self.save_conversation_history()  # Attempt to save the reset history to the file
         except Exception as e:
             print(f"An unexpected error occurred while resetting the conversation history: {e}")
+    def __del__(self):
+        if os.path.exists(self.history_file):
+            os.remove(self.history_file)  # Delete the file when session ends
+
             
                        
 ### Streamlit code ###
