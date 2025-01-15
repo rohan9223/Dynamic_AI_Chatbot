@@ -154,7 +154,7 @@ chat_manager = st.session_state['chat_manager']
 st.sidebar.header('AI Chat Settings')
 # Set the token budget: max tokens per message, and temperature with sliders
 max_tokens_per_message = st.sidebar.slider("Max_tokens/message", 10,1000,400)
-temperature = st.sidebar.slider("temperature/Creativity", 0.0,1.0,0.7,0.1)
+temperature = st.sidebar.slider("Temperature/Creativity", 0.0,1.0,0.7,0.1)
 # Select and set system message with a selectbox
 persona = st.sidebar.selectbox("Persona",['Default Assistant', 'Thoughtful', 'Creative','Sassy', 'Angry','Blogger','Social Media Expert',  'Custom'] )
 if persona == 'Default Assistant':
