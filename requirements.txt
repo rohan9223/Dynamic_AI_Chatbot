@@ -3,6 +3,5 @@ tiktoken
 jsonschema
 streamlit
 datetime
-os
 tempfile
 shutil
