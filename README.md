@@ -30,7 +30,7 @@ Try it out here: [bit.ly/d2ai-chat](https://bit.ly/d2ai-chat)
    git clone https://github.com/rohan9223/Dynamic_AI_Chatbot.git
    cd Dynamic_AI_Chatbot
 2. **Install Required Libraries**
-   
+   pip install streamlit openai tiktoken
 4. **Run the App:**
    streamlit run Chatbot_devlopment_streamlit.py
 
