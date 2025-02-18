@@ -3,7 +3,7 @@
 A customizable **Generative AI ChatBot** powered by **Meta's Llama API** and built with **Streamlit**. Inspired by **ChatGPT**, this chatbot offers dynamic persona customization and real-time conversation management. Perfect for exploring how conversational AI works!
 
 ## 🚀 Live Demo
-Try it out here: [bit.ly/d2ai-chat]([https://bit.ly/d2ai-chat](https://dynamic-ai-chatbot-2vtw.onrender.com/))
+Try it out here: [bit.ly/d2ai-chat]([https://bit.ly/d2ai-chat])
 
 ---
 
