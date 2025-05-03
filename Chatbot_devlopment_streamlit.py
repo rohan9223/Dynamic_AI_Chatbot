@@ -9,7 +9,7 @@ import shutil
 import json
 
 
-DEFAULT_API_KEY = '6839b679cada03417af8db9683bf5bdbb456ea551c51885f8f112726803f5cd9'
+DEFAULT_API_KEY = '05381c772b2d42d6d6c4650e20d4681cb36ee257063a61f94b564088d0e4739a'
 DEFAULT_BASE_URL = "https://api.together.xyz/v1"
 DEFAULT_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
 DEFAULT_TEMPERATURE = 0.7
