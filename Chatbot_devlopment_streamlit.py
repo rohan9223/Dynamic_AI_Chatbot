@@ -13,18 +13,20 @@ DEFAULT_API_KEY = os.getenv("OPENAI_API_KEY")
 if not DEFAULT_API_KEY:
     raise RuntimeError("OPENAI_API_KEY is not set in environment variables")
 
-DEFAULT_BASE_URL = "https://api.together.xyz/v1"
-DEFAULT_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
+#DEFAULT_BASE_URL = "https://api.together.xyz/v1"
+
+#DEFAULT_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
+DEFAULT_MODEL = "gpt-4o"
 DEFAULT_TEMPERATURE = 0.7
 DEFAULT_MAX_TOKENS = 512
 DEFAULT_TOKEN_BUDGET = 4096
 
 class ConversationManager:
     def __init__(self, api_key=None, base_url=None, model=None, history_file=None, temperature=None, max_tokens=None, token_budget=None):
-        if not api_key:
-            api_key = DEFAULT_API_KEY
-        if not base_url:
-            base_url = DEFAULT_BASE_URL
+       self.client = OpenAI(
+        api_key=DEFAULT_API_KEY
+        )
+
             
        self.client = OpenAI(
             api_key=DEFAULT_API_KEY,
