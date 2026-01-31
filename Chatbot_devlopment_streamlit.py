@@ -27,12 +27,12 @@ class ConversationManager:
         api_key=DEFAULT_API_KEY
         )
 
-            
+     '''       
        self.client = OpenAI(
             api_key=DEFAULT_API_KEY,
             base_url=DEFAULT_BASE_URL
         )
-
+    ''''
         if 'history_file' not in st.session_state:
             st.session_state.history_file = "conversation_history.json"  # Use a fixed name for the session
             self.history_file = st.session_state.history_file
