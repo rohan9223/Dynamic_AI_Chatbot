@@ -9,7 +9,10 @@ import shutil
 import json
 
 
-DEFAULT_API_KEY = '05381c772b2d42d6d6c4650e20d4681cb36ee257063a61f94b564088d0e4739a'
+DEFAULT_API_KEY = os.getenv("OPENAI_API_KEY")
+if not DEFAULT_API_KEY:
+    raise RuntimeError("OPENAI_API_KEY is not set in environment variables")
+
 DEFAULT_BASE_URL = "https://api.together.xyz/v1"
 DEFAULT_MODEL = "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
 DEFAULT_TEMPERATURE = 0.7
@@ -23,10 +26,11 @@ class ConversationManager:
         if not base_url:
             base_url = DEFAULT_BASE_URL
             
-        self.client = OpenAI(
-            api_key=api_key,
-            base_url=base_url
+       self.client = OpenAI(
+            api_key=DEFAULT_API_KEY,
+            base_url=DEFAULT_BASE_URL
         )
+
         if 'history_file' not in st.session_state:
             st.session_state.history_file = "conversation_history.json"  # Use a fixed name for the session
             self.history_file = st.session_state.history_file
